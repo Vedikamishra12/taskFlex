@@ -1,4 +1,4 @@
-require("dotenv").config({ path: require("path").join(__dirname, ".env") });
+require("dotenv").config();
 
 const cors = require("cors");
 const express = require("express");
@@ -57,7 +57,7 @@ const startServer = async () => {
       console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
-    console.error("Failed to start server:", error.message);
+    console.error("Failed to start server:", error);
     process.exit(1);
   }
 };
