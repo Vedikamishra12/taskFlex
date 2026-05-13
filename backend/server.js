@@ -1,5 +1,13 @@
 require("dotenv").config();
 
+process.on("uncaughtException", (err) => {
+  console.error("UNCAUGHT EXCEPTION:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("UNHANDLED REJECTION:", err);
+});
+
 const cors = require("cors");
 const express = require("express");
 const helmet = require("helmet");
@@ -57,9 +65,10 @@ const startServer = async () => {
       console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
-    console.error("Failed to start server:", error);
-    process.exit(1);
-  }
+  console.error("FULL ERROR BELOW:");
+  console.error(error);
+  process.exit(1);
+}
 };
 
 startServer();
