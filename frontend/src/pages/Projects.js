@@ -106,11 +106,11 @@ const Projects = () => {
 
   return (
     <>
-      <section className="relative mb-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-slate-900/90 via-indigo-900/40 to-cyan-900/30 p-8 shadow-2xl backdrop-blur-xl">
+      <section className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-slate-900/90 via-indigo-900/40 to-cyan-900/30 p-4 shadow-2xl backdrop-blur-xl sm:mb-10 sm:rounded-3xl sm:p-6 lg:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-violet-200/90">Portfolio</p>
-            <h1 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">Projects that stay accountable</h1>
+            <h1 className="mt-2 text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">Projects that stay accountable</h1>
             <p className="mt-3 max-w-2xl text-sm text-slate-300/90">
               Glass cards, live progress, and crisp member management — same APIs, elevated presentation.
             </p>
@@ -148,28 +148,28 @@ const Projects = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           onSubmit={createProject}
-          className="mb-8 rounded-3xl border border-white/10 bg-white/[0.04] p-5 shadow-inner shadow-black/30 backdrop-blur-xl"
+          className="mb-8 rounded-2xl border border-white/10 bg-white/[0.04] p-4 shadow-inner shadow-black/30 backdrop-blur-xl sm:rounded-3xl sm:p-5"
         >
           <div className="mb-3 flex items-center gap-2 text-sm font-bold text-white">
             <Plus className="h-4 w-4 text-violet-300" />
             New project
           </div>
-          <div className="grid gap-3 lg:grid-cols-[1fr_2fr_auto]">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_2fr_auto] lg:items-end">
             <input
-              className="form-input"
+              className="form-input min-w-0"
               placeholder="Project name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               required
             />
             <input
-              className="form-input"
+              className="form-input min-w-0"
               placeholder="Description"
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
               required
             />
-            <Button type="submit" disabled={saving} className="whitespace-nowrap">
+            <Button type="submit" disabled={saving} className="w-full shrink-0 whitespace-nowrap sm:w-auto lg:w-auto">
               {saving ? "Creating…" : "Create"}
             </Button>
           </div>
@@ -188,7 +188,7 @@ const Projects = () => {
           }
         />
       ) : (
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-2">
           {filtered.map((project, i) => {
             const pct = progressByProject[project._id] ?? 0;
             return (
@@ -200,7 +200,7 @@ const Projects = () => {
               >
                 <GlassCard hover className="flex h-full flex-col p-0 overflow-hidden">
                   <div className="h-1.5 bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)]" />
-                  <div className="flex flex-1 flex-col p-6">
+                  <div className="flex flex-1 flex-col p-4 sm:p-6">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div className="min-w-0">
                         <Link to={`/projects/${project._id}`} className="group block">

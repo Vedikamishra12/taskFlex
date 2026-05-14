@@ -78,11 +78,11 @@ const ProjectDetail = () => {
         Back
       </button>
 
-      <section className="relative mb-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-violet-900/30 to-cyan-900/20 p-8 shadow-2xl backdrop-blur-xl">
+      <section className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900 via-violet-900/30 to-cyan-900/20 p-4 shadow-2xl backdrop-blur-xl sm:mb-10 sm:rounded-3xl sm:p-6 lg:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-violet-200/90">Project</p>
-            <h1 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">{project.name}</h1>
+            <h1 className="mt-2 text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">{project.name}</h1>
             <p className="mt-3 max-w-2xl text-sm text-slate-300/90">{project.description}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               <Link to="/tasks" className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-slate-200 transition hover:bg-white/10">
@@ -93,10 +93,10 @@ const ProjectDetail = () => {
               </Link>
             </div>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-md">
+          <div className="w-full max-w-xs rounded-3xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-md sm:px-6">
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Completion</p>
-            <p className="mt-1 text-4xl font-extrabold text-cyan-300">{stats.progress}%</p>
-            <div className="mt-3 h-2 w-48 overflow-hidden rounded-full bg-white/10 sm:w-56">
+            <p className="mt-1 text-3xl font-extrabold text-cyan-300 sm:text-4xl">{stats.progress}%</p>
+            <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/10">
               <motion.div
                 className="h-full rounded-full bg-gradient-to-r from-[var(--accent-from)] to-[var(--accent-to)]"
                 initial={{ width: 0 }}

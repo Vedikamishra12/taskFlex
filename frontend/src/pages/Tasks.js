@@ -99,11 +99,11 @@ const Tasks = () => {
 
   return (
     <>
-      <section className="relative mb-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-slate-950 via-indigo-950/50 to-slate-900 p-8 shadow-2xl backdrop-blur-xl">
+      <section className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-slate-950 via-indigo-950/50 to-slate-900 p-4 shadow-2xl backdrop-blur-xl sm:mb-10 sm:rounded-3xl sm:p-6 lg:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-200/90">Execution</p>
-            <h1 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">Kanban-style clarity</h1>
+            <h1 className="mt-2 text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">Kanban-style clarity</h1>
             <p className="mt-3 max-w-2xl text-sm text-slate-300/90">
               Filter fast, scan columns, and keep status transitions one tap away.
             </p>
@@ -129,8 +129,8 @@ const Tasks = () => {
         description={isAdmin ? "Create, assign, and monitor work across every project." : "Update the status of tasks assigned to you."}
       />
 
-      <div className="mb-6 grid gap-3 lg:grid-cols-[1fr_1fr_1fr]">
-        <div className="relative lg:col-span-1">
+      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="relative sm:col-span-2 lg:col-span-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
           <input className="form-input pl-10" placeholder="Search tasks…" value={query} onChange={(e) => setQuery(e.target.value)} />
         </div>
@@ -156,9 +156,9 @@ const Tasks = () => {
       {tasks.length === 0 ? (
         <EmptyState title="No tasks yet" message={isAdmin ? "Create a task after adding members to a project." : "Assigned tasks will appear here."} />
       ) : (
-        <div className="scrollbar-thin -mx-1 flex gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:overflow-visible">
+        <div className="scrollbar-thin -mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 lg:grid lg:snap-none lg:grid-cols-4 lg:overflow-visible">
           {COLUMNS.map((col) => (
-            <div key={col} className="min-w-[280px] flex-1 lg:min-w-0">
+            <div key={col} className="min-w-[min(280px,calc(100vw-2.5rem))] shrink-0 snap-start flex-1 lg:min-w-0">
               <div className="mb-3 flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-3 py-2 backdrop-blur-md">
                 <span className="text-xs font-bold uppercase tracking-wide text-slate-400">{col}</span>
                 <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-bold text-slate-200">{grouped[col].length}</span>

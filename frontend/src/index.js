@@ -16,10 +16,12 @@ root.render(
         <AuthProvider>
           <App />
           <Toaster
-            position="top-right"
+            position="top-center"
+            containerStyle={{ top: "max(0.75rem, env(safe-area-inset-top))" }}
             toastOptions={{
               duration: 3200,
-              className: "!bg-slate-900/95 !text-slate-100 !border !border-white/10 !rounded-2xl !shadow-2xl !backdrop-blur-xl",
+              className:
+                "!bg-slate-900/95 !text-slate-100 !border !border-white/10 !rounded-2xl !shadow-2xl !backdrop-blur-xl !max-w-[min(100vw-2rem,24rem)]",
               success: { iconTheme: { primary: "#34d399", secondary: "#0f172a" } },
               error: { iconTheme: { primary: "#f87171", secondary: "#0f172a" } }
             }}

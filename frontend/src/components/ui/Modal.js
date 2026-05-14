@@ -20,7 +20,7 @@ const Modal = ({ open, title, description, children, onClose, wide = false }) =>
       {open && (
         <motion.div
           key="modal-root"
-          className="fixed inset-0 z-[100] flex items-end justify-center p-4 sm:items-center"
+          className="fixed inset-0 z-[100] flex items-end justify-center p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:items-center sm:p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -37,14 +37,14 @@ const Modal = ({ open, title, description, children, onClose, wide = false }) =>
           <motion.div
             role="dialog"
             aria-modal="true"
-            className={`relative z-10 max-h-[90vh] w-full overflow-y-auto rounded-3xl border border-white/10 bg-slate-900/95 p-6 shadow-2xl shadow-violet-500/10 backdrop-blur-2xl sm:p-8 ${wide ? "max-w-3xl" : "max-w-lg"}`}
+            className={`relative z-10 max-h-[85dvh] w-full min-w-0 overflow-y-auto rounded-3xl border border-white/10 bg-slate-900/95 p-5 shadow-2xl shadow-violet-500/10 backdrop-blur-2xl sm:max-h-[90vh] sm:p-8 ${wide ? "max-w-3xl" : "max-w-lg"}`}
             initial={{ opacity: 0, y: 24, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ type: "spring", damping: 26, stiffness: 320 }}
           >
-            <div className="flex items-start justify-between gap-4">
-              <div>
+            <div className="flex min-w-0 items-start justify-between gap-4">
+              <div className="min-w-0 pr-2">
                 {title && <h2 className="text-xl font-bold text-white">{title}</h2>}
                 {description && <p className="mt-1 text-sm text-slate-400">{description}</p>}
               </div>

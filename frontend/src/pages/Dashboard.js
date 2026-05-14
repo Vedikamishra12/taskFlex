@@ -35,12 +35,12 @@ const StatCard = ({ label, value, sub, icon: Icon, delay = 0 }) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay, duration: 0.35 }}
   >
-    <GlassCard hover className="relative overflow-hidden p-6">
+    <GlassCard hover className="relative overflow-hidden p-4 sm:p-6">
       <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-violet-500/20 to-cyan-500/10 blur-2xl" />
       <div className="relative flex items-start justify-between gap-3">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{label}</p>
-          <p className="mt-2 text-4xl font-extrabold tabular-nums text-white">{value}</p>
+          <p className="mt-2 text-3xl font-extrabold tabular-nums text-white sm:text-4xl">{value}</p>
           {sub && <p className="mt-2 text-xs text-slate-400">{sub}</p>}
         </div>
         <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-violet-200">
@@ -158,14 +158,16 @@ const Dashboard = () => {
 
   return (
     <>
-      <section className="relative mb-10 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-violet-600/30 via-slate-900/80 to-cyan-500/20 p-8 shadow-2xl shadow-violet-500/10 backdrop-blur-xl">
+      <section className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-violet-600/30 via-slate-900/80 to-cyan-500/20 p-4 shadow-2xl shadow-violet-500/10 backdrop-blur-xl sm:mb-10 sm:rounded-3xl sm:p-6 lg:p-8">
         <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(rgba(255,255,255,0.9)_1px,transparent_1px)] [background-size:14px_14px]" />
         <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-violet-200/90">
               {user?.role === "admin" ? "Admin overview" : "My workspace"}
             </p>
-            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Command your delivery pipeline</h1>
+            <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl">
+              Command your delivery pipeline
+            </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-300/90">
               Live analytics, deadlines, and team momentum — without leaving your flow.
             </p>
@@ -198,7 +200,7 @@ const Dashboard = () => {
         <StatCard label="Overdue" value={stats.overdue} sub="Needs attention" icon={Flame} delay={0.15} />
       </div>
 
-      <section className="mt-8 rounded-3xl border border-white/10 bg-white/[0.04] p-4 shadow-inner shadow-black/20 backdrop-blur-xl sm:p-5">
+      <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.04] p-3 shadow-inner shadow-black/20 backdrop-blur-xl sm:rounded-3xl sm:p-5">
         <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">Filters</p>
         <div className="grid gap-3 md:grid-cols-3">
           <select className="form-input" value={filters.status} onChange={(e) => setFilters({ ...filters, status: e.target.value })}>
@@ -229,7 +231,7 @@ const Dashboard = () => {
         <GlassCard>
           <h3 className="text-sm font-bold text-white">Status distribution</h3>
           <p className="text-xs text-slate-500">Share of work by lifecycle state</p>
-          <div className="mt-4 h-72">
+          <div className="mt-4 h-52 w-full min-w-0 sm:h-64 lg:h-72">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie nameKey="name" dataKey="value" data={statusPieData} innerRadius={56} outerRadius={88} paddingAngle={4}>
@@ -247,7 +249,7 @@ const Dashboard = () => {
         <GlassCard>
           <h3 className="text-sm font-bold text-white">Tasks per project</h3>
           <p className="text-xs text-slate-500">Volume by portfolio</p>
-          <div className="mt-4 h-72">
+          <div className="mt-4 h-52 w-full min-w-0 sm:h-64 lg:h-72">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={projectBarData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.15)" />
@@ -277,7 +279,7 @@ const Dashboard = () => {
               <p className="text-xs text-slate-500">Done vs assigned (visible tasks)</p>
             </div>
           </div>
-          <div className="mt-4 h-64">
+          <div className="mt-4 h-52 w-full min-w-0 sm:h-56 md:h-64">
             {teamPerformance.length === 0 ? (
               <p className="text-sm text-slate-500">No assignee data for the current filters.</p>
             ) : (
@@ -379,7 +381,7 @@ const Dashboard = () => {
               <p className="text-xs text-slate-500">Scroll horizontally on smaller screens</p>
             </div>
             <div className="scrollbar-thin overflow-x-auto">
-              <table className="min-w-[720px] w-full text-left text-sm">
+              <table className="w-full min-w-[640px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-[11px] font-bold uppercase tracking-wider text-slate-500">
                     <th className="px-5 py-3">Task</th>

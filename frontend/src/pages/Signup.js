@@ -77,12 +77,12 @@ const Signup = () => {
           <p className="relative z-10 text-xs text-white/55">Secure auth · Same APIs as production</p>
         </motion.section>
 
-        <section className="flex items-center justify-center px-4 py-12 sm:px-8">
+        <section className="flex items-center justify-center px-4 py-10 sm:px-8 sm:py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.05 }}
-            className="w-full max-w-md rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-violet-500/10 backdrop-blur-2xl sm:p-10"
+            className="w-full max-w-md rounded-2xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-violet-500/10 backdrop-blur-2xl sm:rounded-3xl sm:p-10"
           >
             <div className="lg:hidden">
               <BrandLogo />
@@ -104,7 +104,7 @@ const Signup = () => {
               />
               <div>
                 <span className="form-label">Role</span>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {[
                     { id: "member", label: "Member", hint: "Execute tasks" },
                     { id: "admin", label: "Admin", hint: "Manage workspace" }

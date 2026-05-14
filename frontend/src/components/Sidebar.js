@@ -40,7 +40,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
     }`;
 
   const asideContent = (
-    <div className="flex h-full flex-col px-4 py-6">
+    <div className="flex h-full flex-col px-4 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
       <div className="mb-8 flex items-start justify-between gap-2">
         <BrandLogo />
         <button
@@ -120,7 +120,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen }) => {
       </AnimatePresence>
 
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-72 border-r border-white/10 bg-slate-950/90 shadow-2xl backdrop-blur-2xl transition-transform duration-300 lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-50 w-[min(100vw,18rem)] max-w-full border-r border-white/10 bg-slate-950/90 pt-[env(safe-area-inset-top)] shadow-2xl backdrop-blur-2xl transition-transform duration-300 lg:w-72 lg:max-w-none lg:translate-x-0 lg:pt-0 ${
           mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         }`}
       >
