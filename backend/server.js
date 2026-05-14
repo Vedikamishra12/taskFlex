@@ -25,10 +25,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(helmet());
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://taskflex-1.onrender.com"
-  ],
+  origin: "*",
   credentials: true
 }));
 app.use(express.json({ limit: "1mb" }));
