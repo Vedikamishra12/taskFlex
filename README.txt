@@ -7,7 +7,7 @@ Tech Stack
 - Backend: Node.js, Express.js
 - Database: MongoDB Atlas with Mongoose
 - Auth: JWT and bcrypt
-- Deployment: Railway for backend, Vercel for frontend
+- Deployment: Railway for backend, Render for frontend
 
 Features
 - Signup and login with JWT authentication
@@ -34,7 +34,7 @@ How To Run Locally
    npm install
 
 3. Create backend environment file:
-   copy .env.example .env
+   copy .env
 
 4. Add real backend values in backend/.env:
    PORT=5000
@@ -49,7 +49,7 @@ How To Run Locally
    npm install
 
 7. Create frontend environment file:
-   copy .env.example .env
+   copy .env
 
 8. Add local frontend API value in frontend/.env:
    REACT_APP_API_URL=http://localhost:5000
@@ -98,20 +98,20 @@ Railway Backend:
    CLIENT_URL
 5. Deploy and copy the Railway backend URL.
 
-Vercel Frontend:
+Render Frontend:
 1. Import the same GitHub repository in Vercel.
 2. Set the root directory to frontend.
 3. Add environment variable:
    REACT_APP_API_URL=https://your-railway-backend-url.up.railway.app
 4. Deploy the frontend.
-5. Add the Vercel frontend URL to Railway as CLIENT_URL.
+5. Add the Render frontend URL to Railway as CLIENT_URL.
 
 Live URL
 - Frontend: Not deployed yet
 - Backend: Not deployed yet
 
 GitHub Repo Link
-- https://github.com/Dev123dahiya/taskflow-pro.git
+- https://github.com/Vedikamishra12/taskFlex.git
 
 Demo Video Link
 - Not recorded yet
